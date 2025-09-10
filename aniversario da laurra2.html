@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aniversário da Laura</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(180deg, #cce6ff, #99ccff);
+        overflow-x: hidden;
+    }
+
+    header {
+        background-color: #4d88ff;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-size: 1.8em;
+        border-bottom: 4px solid #003d99;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        background-color: #0059b3;
+        padding: 10px;
+        gap: 20px;
+    }
+
+    nav button {
+        background-color: #4da6ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    nav button:hover {
+        background-color: #003d99;
+    }
+
+    section {
+        display: none;
+        padding: 40px;
+        text-align: center;
+        max-width: 900px;
+        margin: auto;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 15px;
+        margin-top: 30px;
+        font-size: 1.2em;
+    }
+
+    section.active {
+        display: block;
+    }
+
+    /* Fotos */
+    .fotos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    .foto img {
+        width: 250px;
+        height: auto;
+        border-radius: 10px;
+        border: 3px dashed #3366cc;
+        display: block;
+    }
+
+    footer {
+        text-align: center;
+        background-color: #4d88ff;
+        color: white;
+        padding: 15px;
+        margin-top: 40px;
+    }
+
+    /* Borboletas */
+    .borboleta {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        background-image: url(https://github.com/JephersonVictor/aniversario-laura/blob/dadca4926742e47b0d1b186e429486d0ba49529d/borboleta.gif?raw=true);
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: voar 10s linear infinite;
+        pointer-events: none;
+        opacity: 0.9;
+        z-index: 999;
+    }
+
+    @keyframes voar {
+        0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+        25% { transform: translateY(75vh) translateX(50px) rotate(15deg); }
+        50% { transform: translateY(50vh) translateX(-30px) rotate(-10deg); }
+        75% { transform: translateY(25vh) translateX(60px) rotate(20deg); }
+        100% { transform: translateY(-10vh) translateX(0) rotate(0deg); }
+    }
+
+    /* Tela de acesso */
+    #tela-acesso {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(180deg, #99ccff, #4d88ff);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        z-index: 9999;
+    }
+
+    #tela-acesso input {
+        margin: 10px;
+        padding: 8px;
+        border-radius: 5px;
+        border: none;
+        font-size: 1em;
+    }
+
+    #tela-acesso button {
+        background-color: #003d99;
+        color: rgb(255, 255, 255);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+    }
+
+    #tela-acesso button:hover {
+        background-color: #002b66;
+    }
+</style>
+</head>
+<body>
+
+<!-- Música de fundo -->
+<audio id="musica" controls loop>
+  <source src="https://www.qronfla.com/wp-content/uploads/2017/06/bensound-tenderness-1.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- Tela de acesso -->
+<div id="tela-acesso">
+    <h2>Bem-vinda, Laura</h2>
+    <p>Digite seu nome completo e sua data de nascimento:</p>
+    <input type="text" id="nome" placeholder="Seu nome">
+    <input type="text" id="data" placeholder="DD-MM-AAAA">
+    <button onclick="acessar()">Entrar</button>
+</div>
+
+<header>
+    <h1>Feliz Aniversário, Laura!</h1>
+</header>
+
+<nav>
+    <button onclick="mostrar('inicio')">Início</button>
+    <button onclick="mostrar('mensagens')">Mensagens</button>
+    <button onclick="mostrar('fotos')">Fotos</button>
+    <button onclick="mostrar('declaracao')">Declaração</button>
+</nav>
+
+<section id="inicio" class="active">
+    <h2>Bem-vinda ao seu dia especial!</h2>
+    <p>Hoje celebramos não apenas mais um ano na sua vida, mas a mulher incrível que você se tornou. Laura, seus 20 anos representam uma fase linda, cheia de descobertas, sonhos e novas conquistas. Cada momento ao seu lado é uma lembrança que carrego com carinho, e neste dia tão importante, quero que você saiba o quanto é amada, admirada e especial.</p>
+    <p>Neste cantinho feito para você, espalhei borboletas e fotos para simbolizar a leveza e a beleza que você traz para minha vida. Que cada detalhe aqui te faça sentir o quanto você é única e essencial para mim.</p>
+
+    <div class="fotos">
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/495057735_9401116113319391_5490258828747500520_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeFXDqPt94fM4RSLYkuE-l3R_7hHujIUOlD_uEe6MhQ6UK-C0B8MV3A3lai-ub9G4SUKP58bXU3W1w8Sykg0y5EW&_nc_ohc=sxtL385oPuQQ7kNvwHN8ltJ&_nc_oc=Adn6fvbivoYCze7aJOIg622_99b8kAU5RaxH3JFSRxjsbWOK6hPx6TafL6D32qrJuQ0&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=mu6yirMh0-k5zTObpzs5dg&oh=00_Afbhv4IcwTcWkEY9t8WPfTKXPFke94En5mGZwvOS92sKaA&oe=68C7479E" alt="Foto 1"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/500072048_9612684418829225_5841597257146533401_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=b04a48&_nc_eui2=AeGShX0dqTuoCN7eNNoeVzIUexRjFSOqYCV7FGMVI6pgJeApax0zDMkgIqhynCtQrZ_9sRT4ddFUqC2lv740iTud&_nc_ohc=jkjbSXRZ5VIQ7kNvwFAZNHS&_nc_oc=AdlfpMf9-MtG4lN1XMu4Gm7vdEn9sg62JY8D0Iek0-8hB8uf6ctgYbRWxumlnuS_qro&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=qJPSZGpvMFFUxPC__Rvqbg&oh=00_AfakSyoRfq6sgjV3RITlZTnR5wq65rUQuHDwEq6npXsUaA&oe=68C73E31" alt="Foto 2"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/502605090_9640142329416767_3092533461918355952_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=b04a48&_nc_eui2=AeG7oOCbDyRbFhBEKQ2PN6X8VggksnYUeD9WCCSydhR4P-AUIzGhMfYl0FBWdJrCiVXSXA9s8NnLX4EMySD_ALeu&_nc_ohc=wngLvjkNE58Q7kNvwHhx5hH&_nc_oc=Adlm6nfrzOevKJ8MBq1TL6ZQXZOvnQDYYw3ev1__Lk5T_aDmAb6JkSf1CPERmqzqq10&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=_hcJGnYl_sUQGBgWn4LCUA&oh=00_AfbJGmLCnis8dkwEsghHUcG7Jl0oK9EiVOCLwjQMjovPwQ&oe=68C73F33" alt="Foto 3"></div>
+    </div>
+</section>
+
+<section id="mensagens">
+    <h2>Uma mensagem só para você</h2>
+    <p>Quero te agradecer por cada sorriso, por cada palavra carinhosa, e por cada instante que fez meus dias mais felizes.</p>
+    <p>Minha gatinha, hoje celebramos seus 20 anos de vida, de histórias, de sorrisos que transformam qualquer dia comum em algo extraordinário. Cada ano que passa, você mostra mais força, mais beleza e mais razão para ser celebrada.</p>
+    <p>Que este aniversário seja apenas o início de uma nova etapa cheia de conquistas, de novos sonhos e de muito amor. Neste espaço especial, guardei cada detalhe para homenagear quem você é: uma pessoa que ilumina, que encanta e que merece cada instante de alegria.</p>
+
+  <div class="fotos">
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/492205284_9343514615746208_6010317666815690145_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=cf85f3&_nc_eui2=AeHHu2DW_2ELYDVjIau7Cc5JM1vRK2XqVlkzW9ErZepWWeaOkVl-IX9RX6F0szYE_tgk-_HoeAo6RmsEjKr1GfVs&_nc_ohc=qOHh4lOHG5IQ7kNvwHzVtIt&_nc_oc=AdmOaqevet8L3cmwBoSwLt9exT0sK2NBKx7xGsYGFpVO7Zgkz7eexiq2Qc1NAd-6krU&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=JaF4lE5379lJETIkTmKofw&oh=00_Afbwr0kykkROOu9onxwgoQolPmJCHrIYca5Y6WxnAcqO1w&oe=68C74130" alt="Foto 4"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/509426379_9781195268644805_3817822178441560737_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHz_oc1H3gBN2wzf51ppCF6bkdmrpOF3v1uR2auk4Xe_biRqg-DiF0LSxKAkCCq74rzZgxQg09hGArQWz4civ7r&_nc_ohc=2KJ0tet24WUQ7kNvwHw3McL&_nc_oc=Adndgnkh2mZZVe3adN7oGOlnuwc_8t5V_dUEsNKwgHj6KFu3AFLIltWJT_vm84VqIeg&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=F3p8U-su17EMdMrVasuWTw&oh=00_AfYDNNEIP4H3nSIof47KxtVRnNki6TdeipiBbQdoWmeK5A&oe=68C72DDC" alt="Foto 5"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/508974926_9786492338115098_7349423603175491603_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFKaYx8aGZaj-fBNUg1obh2eSBQXNTqFDB5IFBc1OoUMJyl7-c-x1jLD22lax3pCEzfiWjFit5YUROtQRSdLT0t&_nc_ohc=wM0Mp2I5bcAQ7kNvwEy3B2Y&_nc_oc=AdmYorfTyMH4caju5aIIaqAgUtD0j00JBuYrJ4fFB0LsILTYgoGBUINWJqiifJ9HNOM&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=_KXoV-BYAdirSujkmYsTKg&oh=00_AfY_196zPJ5UOI4GM44Q6kQprriAV1e9Cl9djP756nPpXQ&oe=68C74895" alt="Foto 6"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t1.6435-9/50565922_1900371033393974_823030843332100096_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFa7q1gA4LUvKmuYnNmv4vM-fmWN1TiDNb5-ZY3VOIM1pcq56Es76DoV5D_KDxcf7ywKdcMGZBYPZpsCy8csYJF&_nc_ohc=hVVgeUyUso8Q7kNvwFZSZbI&_nc_oc=Admu9SkIpYHJYNgjo4Q9IXfipcgNF4blKuWBP-NSbgEXDSq4MwegQAY79rsUi_OQ_58&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=8oeIkVE_C71yU2madqCoYQ&oh=00_Afb46dQhkdOXN_C7sMPMrB_mYun_AtNiH-55vWLLH7JyJQ&oe=68E8E54C" alt="Foto 7"></div>
+</section>
+
+<section id="fotos">
+    <h2>Momentos inesquecíveis</h2>
+    <div class="fotos">
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t1.6435-9/119304547_3103211529776579_3496212875643550883_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFOnNvXed4DHaw-tfmtdKwLUC1nFOapo2FQLWcU5qmjYYi8LKXAn_hvLJmydMKl3TH7WzhzWVsVSL0RnyIhZWf1&_nc_ohc=J7OPC4CeqQsQ7kNvwGmnKEW&_nc_oc=AdkwwGi2XVQUeXyT1PVLmI_dW7GPqSbjaV6Qd4MI-udURTFRXBeXErwzrdc_wIYF_kc&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=I87MfS-RRGI3-a638lqBtQ&oh=00_AfaAazZM-yExNbyytrYldMxAsFTCxHVPVuEirJwWZDfa2w&oe=68E8C3FB" alt="Foto 4"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t1.6435-9/148846011_3506928896071505_9017624689746303048_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGD1mpUssALvaQGbt5EPnohJgu8az-MvmgmC7xrP4y-aFWLMF8vn-MLjark6rdwo9cOFyIkg4MpmrZCgfvlrXuD&_nc_ohc=x5UOf42MC34Q7kNvwHRPoRT&_nc_oc=AdksGYu5BoouIbO-L6lPA5eBZ0FHXUc7Hjr-defzf5Zpg-XOgMHZy5DZ6FKBj_LE_pg&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=NpZIADQqq_AWJmN00_AgMA&oh=00_AfYnaPjRA8fpdOPZv41KJfRLIdnvN7pM3ivZiNSRh-baaw&oe=68E8C1ED" alt="Foto 5"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/481675443_9034194710011535_8255500731218907564_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFlsLUMj22ryj6jxArOMqE0Kc6l_amAv-EpzqX9qYC_4UmE95XqHnssg38ucexkAk0RAwQc6T5HeCBZ5XOuq9xf&_nc_ohc=1pgchoRas9UQ7kNvwEu3sEu&_nc_oc=AdmUdqyIXcThwcWafHEuf_vgvfmI3NdJN2Fei8fz8-heTpsi6jv0ZuK5FKgIMHs9--U&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=8MjLl-tCJEQadNsC-P_QXw&oh=00_AfYcrrmPZe4Cu5fl8fVSDUR8TKDHBy_lrekWpkuKN52ntw&oe=68C747A0" alt="Foto 6"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/512576228_9813015752129423_768806961863964499_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGGL92ZAR4-odvz7lxNTh3AU02Ajr0akTRTTYCOvRqRNG2J3X-qYJa4yYpcdvldZ_cj6beX8ZR1vvJh99gxVODD&_nc_ohc=Wd7lNTFG3zIQ7kNvwEywtTp&_nc_oc=Adnl5l-P7kpUMjIRDid7M7ymoGP2fTLck2K3KFepAKAgOoV49jJKNPZEGrKQ_fcwYXw&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=PFv8hm-mYGzUTb86wiYV0g&oh=00_AfatVQrRrkdCNN2moBSC0YSEWSUO9aepkd-O4gJTtQJEWQ&oe=68C71DF8" alt="Foto 7"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t51.75761-15/474858851_18483070414045792_6603374085275117492_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=111&ccb=1-7&_nc_sid=714c7a&_nc_eui2=AeHHY30Iae7g02QSgdlLTKYDbUJPjfWQay5tQk-N9ZBrLuTsrOU310GxGXEBl4sQOIpKeB5fAy4oejfLRAVAdBSy&_nc_ohc=LixnvRwSxRgQ7kNvwFpD_gV&_nc_oc=Adm5CI8FzDbs2e7UuiEWovGhh08gXD8g2jROqPj9XCFjQnClqgav3vQqfrpQGlhybGg&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=CciiwCmQ2vlc_ByGvKbAZg&oh=00_AfaikxdbeSI0-0Pdu0w7AoQNBgzNYgo237M3T8Gwnh8qJQ&oe=68C71B58" alt="Foto 8"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t51.82787-15/524612105_18518624143045792_505525714249086229_n.webp?stp=dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGKneu1AU6QoyNh4lmSFWfkfwFE7vrJF9N_AUTu-skX013cEhzrg1ZX5jd1lgORTqT0bLWqO8v_E2ON9oWMPg_N&_nc_ohc=kMpDG5JKK4sQ7kNvwGxH2M7&_nc_oc=AdnYFLlrtZEHLNdIf0B3kO96cYVWThv7-hKnfZ2wHL0QpbJL6JCJISDaVAM1NYBsQPQ&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=N3QOt7LNe-PvbjaZsHsGwA&oh=00_AfaAhgvbPA7e1IAmQucJhC6zTg1H9EmP5m52a-PthS5gHQ&oe=68C73DB1" alt="Foto 9"></div>
+    </div>
+</section>
+
+<section id="declaracao">
+    <h2>Minha declaração para você</h2>
+    <p>Oooi meu amor, cada dia ao seu lado é uma bênção. Hoje, ao comemorar seus 20 anos, quero que saiba que cada batida do meu coração guarda um espaço especial para você.</p>
+    <p>Não existem palavras que expressem totalmente o quanto você significa para mim. Cada momento ao seu lado é uma dádiva, cada olhar seu é um convite para sonhar, cada abraço seu é o lugar onde eu encontro paz. Eu não celebro apenas seu aniversário, eu celebro a sorte que tenho de estar com você.</p>
+    <p>Que essa seja apenas uma das muitas datas que comemoraremos juntos, sempre com amor, carinho e cumplicidade. Você não é apenas parte da minha vida, você é o motivo dos meus melhores sorrisos. Feliz aniversário, meu amor!</p>
+
+ <div class="fotos">
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/512605199_9814268248670840_3165566919725898902_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHYPzTCgoaY2-2ly3L-Mc3Z36NdKvYaoF3fo10q9hqgXYbD_FEsjkeU-r_ZMT2rOfMLVmidvaj9CnLn1vaN9pPr&_nc_ohc=8eeyAAhAnvoQ7kNvwFh_lDq&_nc_oc=AdlQAGvnwH7mZFjTJndW8YGLLL-Fn7Za-uWbmnMZ-DWYXuigqNaJNfxuiLEEeJYIsQs&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=umEZfhlAZMx3lKSHggbc7Q&oh=00_AfYmBPIhUbqcm1yohP15Jd2pAaC8v5DBUNDZJHR5ZMp-gA&oe=68C74030" alt="Foto 20"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/490025540_9260085227422481_766217295906855003_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeEEwfWmcgr2c3w4qfUH1rqf8nEEvSgA2W_ycQS9KADZbyIVjVHjtw2G_yXRpJXQgBpm-D8t41Yc2UYVBffHT-tg&_nc_ohc=54qbUtFFJm0Q7kNvwEk-GmD&_nc_oc=AdkbtRajhSYQ3dh7zuhq3OHcJb8OYi1erqJpbz0NU8U0Z3EduPr1I3rwop5a807nSMY&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=cjVoq270SmV9eWpR6svupw&oh=00_AfYJoWjyb24qBmxsNxAWGY7Jo5yWFGgikuQTM53wyk5p2g&oe=68C735B2" alt="Foto 21"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/489786254_9237336256364045_2018190709182266934_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeH11YEkv-xFsP7KFiNqdu2uTgrp0aQpGTdOCunRpCkZNyTvARl53fv6hZgBrQ8Pu-LkDTnRSgvLsCQq5AxGS8t6&_nc_ohc=rKFF0xWDZl0Q7kNvwGHEAb4&_nc_oc=AdkFWLl7IlsvVQifdOwKfE65i2bmhtzRZUIX8pigY9U-xIM3QVuUS8hWBudb28vmtrU&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=YRvaLY_6ro3slD0F_HCanA&oh=00_AfbSvcaKj_v3LkQvbMCNEjVxEeCtISZmiS7CHS-SwnsKXA&oe=68C74AF7" alt="Foto 22"></div>
+        <div class="foto"><img src="https://scontent.fvag4-1.fna.fbcdn.net/v/t39.30808-6/484804456_1781161095778135_8497870039889006036_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHQrln5gQcAChfn4mBqYtXVd2nbKHqKMxx3adsoeoozHCoNqY5-eP_SUsEP6helb39yyOuFKrYgQb_UKcURDPno&_nc_ohc=cZpsK7taE9kQ7kNvwEQk9VX&_nc_oc=AdmPWg7BGr6xC3dpXTykJyscEdF-_33grsQ6gvpHCgCBh7WTp-OkwHL8dTOckeaojKA&_nc_zt=23&_nc_ht=scontent.fvag4-1.fna&_nc_gid=snYOSGMNxAaYGgIQjZTOKQ&oh=00_Afa2jfHmSiXugHb688v-9570aR7gxv4f1VXV4-3ak6gyHw&oe=68C7462E" alt="Foto 23"></div>
+</section>
+
+<footer>
+    <p>Com amor, para sempre seu.</p>
+</footer>
+
+<script>
+    // Acesso
+     function acessar() {
+        const nome = document.getElementById('nome').value.toLowerCase().trim();
+        const data = document.getElementById('data').value.trim();
+        if (nome === "laura ribeiro gimenes" && data === "13-09-2005") {
+            document.getElementById('tela-acesso').style.display = 'none';
+            
+            // Inicia a música ao entrar
+            const audio = document.getElementById('musica');
+            audio.play();
+        } else {
+            alert("Nome ou data incorretos!");
+        }
+    }
+
+    // Menu interativo
+    function mostrar(secao) {
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        document.getElementById(secao).classList.add('active');
+    }
+
+    // Criar borboletas
+    for (let i = 0; i < 15; i++) {
+        let b = document.createElement('div');
+        b.classList.add('borboleta');
+        b.style.left = Math.random() * 100 + 'vw';
+        b.style.animationDuration = (8 + Math.random() * 7) + 's';
+        b.style.animationDelay = Math.random() * 5 + 's';
+        document.body.appendChild(b);
+    }
+</script>
+</body>
+</html>
